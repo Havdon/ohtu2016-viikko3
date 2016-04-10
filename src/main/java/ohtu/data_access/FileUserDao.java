@@ -31,38 +31,30 @@ public class FileUserDao implements UserDao {
     public FileUserDao(String usernameFile, String passwordFile) {
         this.usernameFile = usernameFile;
         this.passwordFile = passwordFile;
-        this.load();
-    }
-    
-    final void load() {
-        File usernames = new File(usernameFile);
-        File passwords = new File(passwordFile);
-        
         try {
-            this.users = new ArrayList<User>();
-            Scanner usernameScanner = new Scanner(usernames);
-            Scanner passwordScanner = new Scanner(passwords);
-            while (usernameScanner.hasNextLine() && passwordScanner.hasNextLine()) {
-                this.users.add(new User(usernameScanner.nextLine(), passwordScanner.nextLine()));
-            }
+            this.load();
         } catch (FileNotFoundException ex) {
             this.users = new ArrayList<User>();
         }
     }
     
-    final void save() {
-        try {
-            FileWriter usernames = new FileWriter(usernameFile);
-            FileWriter passwords = new FileWriter(passwordFile);
-            for (User user : this.users) {
-                usernames.write(user.getUsername() + "\n");
-                passwords.write(user.getPassword() + "\n");
-            }
-            usernames.close();
-            passwords.close();
-        } catch (IOException ex) {
-            Logger.getLogger(FileUserDao.class.getName()).log(Level.SEVERE, null, ex);
+    final void load() throws FileNotFoundException {
+        File usernames = new File(usernameFile), passwords = new File(passwordFile);
+        this.users = new ArrayList<User>();
+        Scanner usernameScanner = new Scanner(usernames), passwordScanner = new Scanner(passwords);
+        while (usernameScanner.hasNextLine() && passwordScanner.hasNextLine())
+            this.users.add(new User(usernameScanner.nextLine(), passwordScanner.nextLine()));
+        
+    }
+    
+    final void save() throws IOException {
+        FileWriter usernames = new FileWriter(usernameFile), passwords = new FileWriter(passwordFile);
+        for (User user : this.users) {
+            usernames.write(user.getUsername() + "\n");
+            passwords.write(user.getPassword() + "\n");
         }
+        usernames.close();
+        passwords.close();
     }
     
     @Override
@@ -84,7 +76,10 @@ public class FileUserDao implements UserDao {
     @Override
     public void add(User user) {
         users.add(user);
-        this.save();
+        try {
+            this.save();
+        } catch (IOException ex) {
+            Logger.getLogger(FileUserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
 }
