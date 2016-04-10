@@ -30,13 +30,7 @@ public class AuthenticationService {
         return false;
     }
 
-    public boolean createUser(String username, String password)
-    
-    
-    
-    
-    
-    {
+    public boolean createUser(String username, String password) {
         if (userDao.findByName(username) != null) return false;
         if (invalid(username, password)) return false;
         userDao.add(new User(username, password));
