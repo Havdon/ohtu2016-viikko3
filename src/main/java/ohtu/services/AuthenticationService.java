@@ -14,11 +14,15 @@ public class AuthenticationService {
     public AuthenticationService(UserDao userDao) {
         this.userDao = userDao;
     }
+    
+    boolean userHas(User user, String username, String password) {
+        return user.getUsername().equals(username)
+                    && user.getPassword().equals(password);
+    }
 
     public boolean logIn(String username, String password) {
         for (User user : userDao.listAll()) {
-            if (user.getUsername().equals(username)
-                    && user.getPassword().equals(password)) {
+            if (this.userHas(user, username, password)) {
                 return true;
             }
         }
@@ -27,16 +31,9 @@ public class AuthenticationService {
     }
 
     public boolean createUser(String username, String password) {
-        if (userDao.findByName(username) != null) {
-            return false;
-        }
-
-        if (invalid(username, password)) {
-            return false;
-        }
-
+        if (userDao.findByName(username) != null) return false;
+        if (invalid(username, password)) return false;
         userDao.add(new User(username, password));
-
         return true;
     }
 

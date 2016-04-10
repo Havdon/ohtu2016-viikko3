@@ -29,27 +29,34 @@ public class App {
         while (true) {
             String command = io.readLine(">");
 
-            if (command.isEmpty()) {
-                break;
-            }
-
-            if (command.equals("new")) {
-                String[] usernameAndPasword = ask();
-                if (auth.createUser(usernameAndPasword[0], usernameAndPasword[1])) {
-                    io.print("new user registered");
-                } else {
-                    io.print("new user not registered");
-                }
-
-            } else if (command.equals("login")) {
-                String[] usernameAndPasword = ask();
-                if (auth.logIn(usernameAndPasword[0], usernameAndPasword[1])) {
-                    io.print("logged in");
-                } else {
-                    io.print("wrong username or password");
-                }
-            }
-
+            if (command.isEmpty()) break;
+            this.handleCommand(command);
+        }
+    }
+    
+    public void handleCommand(String command) {
+        if (command.equals("new")) {
+            this.handleNew();
+        } else if (command.equals("login")) {
+            this.handleLogin();
+        }
+    }
+    
+    public void handleNew() {
+        String[] usernameAndPasword = ask();
+        if (auth.createUser(usernameAndPasword[0], usernameAndPasword[1])) {
+            io.print("new user registered");
+        } else {
+            io.print("new user not registered");
+        }
+    }
+    
+    public void handleLogin() {
+        String[] usernameAndPasword = ask();
+        if (auth.logIn(usernameAndPasword[0], usernameAndPasword[1])) {
+            io.print("logged in");
+        } else {
+            io.print("wrong username or password");
         }
     }
 
