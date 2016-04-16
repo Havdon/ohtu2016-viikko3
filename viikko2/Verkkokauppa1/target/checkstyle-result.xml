@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/Main.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Viitegeneraattori.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/ITuote.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Pankki.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Tuote.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/IOstoskori.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Varasto.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/IKirjanpito.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Kauppa.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/IViitegeneraattori.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Kirjanpito.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/IPankki.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/Ostoskori.java">
+</file>
+<file name="/home/oskar/school/ohtu/ohtu2016/viikko2/Verkkokauppa1/src/main/java/ohtu/verkkokauppa/IVarasto.java">
+</file>
+</checkstyle>
